@@ -10,18 +10,26 @@
 	
 	<div id="container">
 		
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
-		
 		<div id="user_nav">
 			<% if user_signed_in? %>
-				Signed in as <%= current_user.email %>. not you ?
+				Signed in as <%= current_user.email %>
+				<%= link_to "Edit profile", edit_user_registration_path %>
 				<%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
 			<% else %>
 				<%= link_to "Sign up", new_user_registration_path %> or 
 				<%= link_to "Sign in", new_user_session_path %>
 			<% end %>
 		</div>
+		
+			<% flash.each do |key, msg| %>
+			    <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+
+			<% end %>
+	
+		<!-- ><p class="notice"><%= notice %></p> -->
+		<!-- ><p class="alert"><%= alert %></p> -->
+		
+
 
 	<%= yield %>
 	
