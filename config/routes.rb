@@ -1,10 +1,14 @@
 Projoosr::Application.routes.draw do
 
+  get "site/index"
+
+  get "site/about"
+
   get "home/index"
 
   devise_for :users
   resources :videos
-  root :to => "videos#new"
+  root :to => "site#index"
  
 
   # The priority is based upon order of creation:

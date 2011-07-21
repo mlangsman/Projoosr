@@ -1,0 +1,25 @@
+
+<% @videos.each do |video| %>
+
+
+
+	<div class='video'>
+		
+		<%= link_to(video) do %>
+			<div class='thumbnail'>
+			<%= image_tag video.panda_video.encodings.find_by_profile_name("h264").screenshots.first,  :size => "125x94" %>
+			</div>
+		<% end %>
+		
+		<%= link_to(video) do %>
+			<h3><%= video.title %></h3>
+		<% end %>
+		
+		<div class='description'><%= video.description %></div>
+	</div>
+	
+
+<div class="clear"></div> 
+
+<% end %>
+

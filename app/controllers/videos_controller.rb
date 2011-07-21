@@ -1,5 +1,11 @@
 class VideosController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
   
+    def index
+      logger.debug "\n\nindex called!\n\n" 
+      @videos = Video.find(:all)
+    end
+    
     def show
       @video = Video.find(params[:id])
       @original_video = @video.panda_video
@@ -13,6 +19,20 @@ class VideosController < ApplicationController
     def create
       @video = Video.create!(params[:video])
       redirect_to :action => :show, :id => @video.id 
+    end
+    
+    def destroy
+      logger.debug "\n\ndestroy called!\n\n" 
+      @video = Video.find(params[:id])
+      
+      # Find and delete the Panda video
+      @original_video = @video.panda_video
+      @original_video.delete
+      
+      # delete the video database row
+      @video.destroy
+      
+      redirect_to :action => :index
     end
   
 end
