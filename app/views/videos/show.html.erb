@@ -2,7 +2,35 @@
 
 <h2><%= @video.title %></h2>
 
-<p><%= h @video.panda_video.inspect %></p>
+<p>
+<!-- <%= h @video.panda_video.inspect %> -->
+<%= @video.description %>
+</p>
+
+<!-- ><a 
+	href="<%= @h264_encoding.url %>" 
+	style="display:block;width:<%= @h264_encoding.width %>px;height:<%= @h264_encoding.height %>px;" 
+	id="player">
+</a>
+-->
+
+<div class="player" style="display:block;width:<%= @h264_encoding.width %>px;height:<%= @h264_encoding.height %>px;background-image:url(<%= @h264_encoding.screenshots.first %>)" 
+	href="<%= @h264_encoding.url %>"
+
+	<!-- play button -->
+	<img src="/images/play_large.png" alt="Play this video" />
+
+	
+</div>
+
+<script language="JavaScript">
+	flowplayer("div.player", "/flowplayer-3.2.7.swf");
+</script>
+
+
+
+
+
 
 
 <%= link_to 'Edit', edit_video_path(@video) %> |

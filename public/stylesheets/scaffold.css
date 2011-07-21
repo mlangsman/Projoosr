@@ -85,3 +85,19 @@ div.field, div.actions {
 #user_nav {
 	float: right;
 }
+
+/* player container */
+div.player {
+
+	cursor:pointer;
+	text-align:center;
+	margin-right:15px;
+}
+
+/* play button */
+div.player img {
+	margin-top:110px;
+}
+
+
+
