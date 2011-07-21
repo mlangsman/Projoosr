@@ -4,7 +4,8 @@ Projoosr::Application.routes.draw do
 
   devise_for :users
   resources :videos
-  root :to => "videos#index"
+  root :to => "videos#new"
+ 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

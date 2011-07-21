@@ -1,19 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @video.title %>
-</p>
+<h2><%= @video.title %></h2>
 
-<p>
-  <b>Description:</b>
-  <%= @video.description %>
-</p>
-
-<p>
-  <b>Video:</b>
-  <%= @video.video_id %>
-</p>
+<p><%= h @video.panda_video.inspect %></p>
 
 
 <%= link_to 'Edit', edit_video_path(@video) %> |
