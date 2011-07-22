@@ -6,6 +6,7 @@
 	<th>thumbnail</th>	
     <th>Title</th>
     <th>Description</th>
+    <th>Published</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,6 +18,7 @@
 	<td><%= image_tag video.thumbnail,  :size => "50x50" %></td>
     <td><%= video.title %></td>
     <td><%= video.description %></td>
+    <td><%= video.published? %></td>
     <td><%= link_to 'Show', video %></td>
     <td><%= link_to 'Edit', edit_video_path(video) %></td>
     <td><%= link_to 'Destroy', video, :confirm => 'Are you sure?', :method => :delete %></td>

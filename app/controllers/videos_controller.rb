@@ -24,6 +24,16 @@ class VideosController < ApplicationController
       redirect_to :action => :show, :id => @video.id 
     end
     
+    def edit
+      @video = Video.find(params[:id])
+    end
+    
+    def update
+      @video = Video.find(params[:id])
+      @video.update_attributes(params[:video])
+      redirect_to :action => :index
+    end
+    
     def destroy
       logger.debug "\n\ndestroy called!\n\n" 
       @video = Video.find(params[:id])

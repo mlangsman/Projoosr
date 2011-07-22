@@ -20,8 +20,11 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :video_id %><br />
-    <%= f.text_field :video_id %>
+    <%= @video.panda_video_id %><br />
+  </div>
+  <div class="field">
+    <%= f.label :published %><br />
+    <%= f.check_box :published %>
   </div>
   <div class="actions">
     <%= f.submit %>
