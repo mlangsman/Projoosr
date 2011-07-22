@@ -1,14 +1,11 @@
 
 <% @videos.each do |video| %>
 
-
-
 	<div class='video'>
 		
 		<%= link_to(video) do %>
 			<div class='thumbnail'>
-			<% @thumbnail = video.panda_video.encodings.find_by_profile_name("h264").screenshots.first || "/images/placeholder_thumbnail.png" %>
-			<%= image_tag @thumbnail,  :size => "125x94" %>
+				<%= image_tag video.thumbnail,  :size => "125x94" %>
 			</div>
 		<% end %>
 		

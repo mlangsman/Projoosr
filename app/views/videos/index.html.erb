@@ -14,7 +14,7 @@
 <% @videos.each do |video| %>
   <tr>
     <td><%= video.id %></td>
-	<td><%= image_tag video.panda_video.encodings.find_by_profile_name("h264").screenshots.first,  :size => "50x50" %></td>
+	<td><%= image_tag video.thumbnail,  :size => "50x50" %></td>
     <td><%= video.title %></td>
     <td><%= video.description %></td>
     <td><%= link_to 'Show', video %></td>
