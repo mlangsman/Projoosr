@@ -2,10 +2,16 @@
 
 <h2><%= @video.title %></h2>
 
-<p>
- 	<!-- <%= h @video.panda_video.inspect %> -->
+<p> 
+<!-- <%= h @video.panda_video.inspect %> -->
 	<%= @video.description %>
 </p>
+
+<p>DEBUG: <%= debug @video %><p>
+<p>USER.VIDEOS: <%= current_user.videos %></p>
+<p>VIDEO SUCCESS: <%= @video.panda_video.status %></p>
+<p>JSON BIZZLE: <%= Panda.get("/videos/#{@video.id}/encodings.json") %></p>
+
 
 <!-- ><a 
 	href="<%= @h264_encoding.url %>" 

@@ -15,7 +15,10 @@
 			
 		<div id="header">
 			
-			<h1 id="main_title">Projoosr</h1>
+			<%= link_to root_url do %>
+				<h1 id="main_title">Projoosr</h1>
+			<% end %>
+		
 		
 			<div id="user_nav">
 				<% if user_signed_in? %>

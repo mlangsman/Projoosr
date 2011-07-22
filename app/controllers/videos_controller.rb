@@ -17,7 +17,10 @@ class VideosController < ApplicationController
     end
 
     def create
-      @video = Video.create!(params[:video])
+      # @order = @customer.orders.create(:order_date => Time.now)
+      @video = current_user.videos.create!(params[:video])
+       logger.debug "\n\ncurrent user:\n\n${current_user}\n\n" 
+      # @video = Video.create!(params[:video])
       redirect_to :action => :show, :id => @video.id 
     end
     

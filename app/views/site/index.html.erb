@@ -7,7 +7,8 @@
 		
 		<%= link_to(video) do %>
 			<div class='thumbnail'>
-			<%= image_tag video.panda_video.encodings.find_by_profile_name("h264").screenshots.first,  :size => "125x94" %>
+			<% @thumbnail = video.panda_video.encodings.find_by_profile_name("h264").screenshots.first || "/images/placeholder_thumbnail.png" %>
+			<%= image_tag @thumbnail,  :size => "125x94" %>
 			</div>
 		<% end %>
 		

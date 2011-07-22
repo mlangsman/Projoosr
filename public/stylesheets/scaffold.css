@@ -11,10 +11,6 @@ body, p, ol, ul, td {
  	line-height: 18px;
 }
 
-a:hover
-{
-	color: none;
-}
 
 h1, h2, h3
 {
@@ -46,9 +42,12 @@ pre {
   font-size: 11px;
 }
 
-a { color: #000; }
 a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+
+a h1 {text-decoration: none;}
+
+a {text-decoration: underline;}
+
 
 div.field, div.actions {
   margin-bottom: 10px;
@@ -173,6 +172,7 @@ div.player img {
 	float:left;
 	margin: 40px 0px 0px 20px;
 	font-size: 40px;
+	text-decoration: none;
 }
 
 #footer {
