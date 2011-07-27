@@ -32,4 +32,9 @@ Projoosr::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  # Panda config...
+  
+  ENV['PANDASTREAM_URL'] = "http://c80dbcee4c037bb80ceb:3e663336fd3408275159@api.pandastream.com:80/4791c3e54b94977441471683df792e8b"
+  
 end
