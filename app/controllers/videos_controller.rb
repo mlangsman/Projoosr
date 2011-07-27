@@ -7,9 +7,20 @@ class VideosController < ApplicationController
     end
     
     def show
-      @video = Video.find(params[:id])
-      @original_video = @video.panda_video
-      @h264_encoding = @original_video.encodings.find_by_profile_name("h264")
+      begin
+        @video = Video.find(params[:id])
+        # If the requested video isnt published yet we return a 404 
+        if @video.published?
+          @original_video = @video.panda_video
+          @h264_encoding = @original_video.encodings.find_by_profile_name("h264") 
+        else 
+          render_404
+        end
+      rescue ActiveRecord::RecordNotFound
+        render_404
+      end
+    
+      
     end
 
     def new
