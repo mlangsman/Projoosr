@@ -29,15 +29,21 @@
 					<li><%= link_to "Home", root_url %></li>
 					<li><%= link_to "Help", '#' %></li>
 					<% if user_signed_in? %>
-						<li><%= link_to "Edit profile", edit_user_registration_path %></li>
-						<li><%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %></li>
+							<li><%= link_to "Video admin", videos_path %></li>
+							<li><%= link_to "Edit profile", edit_user_registration_path %></li>
+							<li><%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %></li>
+						</ul>
+						<div id='status'>Signed in as <%= current_user.email %></div>
+				
 					<% else %>
 						<li><%= link_to "Sign up", new_user_registration_path %></li> 
 						<li><%= link_to "Sign in", new_user_session_path %></li>
+						</ul>
 					<% end %>
-					</ul>
+				
+				
 			</nav>
-			<div id='status' style="clear: both;"><p>signed in as <%= current_user.email %></p></div>
+			
 		</header> 
 		
 		<section class="round">
@@ -51,7 +57,7 @@
 		</section>
 		
 		<footer>
-			<p class="copyright">Copyright projoosr.com 2011</p>
+			<!--<p class="copyright">Copyright projoosr.com 2011</p>-->
 		</footer>
 		
 	</div>
