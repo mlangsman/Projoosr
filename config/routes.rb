@@ -8,6 +8,7 @@ Projoosr::Application.routes.draw do
 
   devise_for :users
   resources :videos
+  resource :profile
   root :to => "site#index"
  
 

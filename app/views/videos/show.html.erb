@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h2><%= @video.title %></h2>
+by <strong><%= @video.user.email %></strong>
 
 <p><%= @video.description %></p>
 
-<%= render 'debug' %>
+<!--<%= render 'debug' %>-->
 
 <div class="player" style="display:block;width:<%= @h264_encoding.width %>px;height:<%= @h264_encoding.height %>px;background-image:url(<%= @video.thumbnail %>)" 
 	href="<%= @h264_encoding.url %>"
