@@ -1,23 +1,6 @@
 
-<% @videos.each do |video| %>
-
-	<div class='video'>
-		
-		<%= link_to(video) do %>
-			<div class='thumbnail'>
-				<%= image_tag video.thumbnail,  :size => "125x94" %>
-			</div>
-		<% end %>
-		
-		<%= link_to(video) do %>
-			<h3><%= video.title %></h3>
-		<% end %>
-		
-		<div class='description'><%= video.description %></div>
-	</div>
-	
+<%= render @videos %>
 
 <div class="clear"></div> 
 
-<% end %>
 

@@ -1,0 +1,9 @@
+
+<p>DEBUG: <%= debug @video %><p>
+
+<% if user_signed_in? %>
+	<p>USER.VIDEOS: <%= current_user.videos %> </p>
+<% end %>
+
+<p>VIDEO SUCCESS: <%= @video.panda_video.status %></p>
+<p>JSON BIZZLE: <%= Panda.get("/videos/#{@video.id}/encodings.json") %></p>

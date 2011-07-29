@@ -2,40 +2,21 @@
 
 <h2><%= @video.title %></h2>
 
-<p> 
-<!-- <%= h @video.panda_video.inspect %> -->
-	<%= @video.description %>
-</p>
+<p><%= @video.description %></p>
 
-<p>DEBUG: <%= debug @video %><p>
-<p>USER.VIDEOS: <%= current_user.videos %></p>
-<p>VIDEO SUCCESS: <%= @video.panda_video.status %></p>
-<p>JSON BIZZLE: <%= Panda.get("/videos/#{@video.id}/encodings.json") %></p>
-
-
-<!-- ><a 
-	href="<%= @h264_encoding.url %>" 
-	style="display:block;width:<%= @h264_encoding.width %>px;height:<%= @h264_encoding.height %>px;" 
-	id="player">
-</a>
--->
+<%= render 'debug' %>
 
 <div class="player" style="display:block;width:<%= @h264_encoding.width %>px;height:<%= @h264_encoding.height %>px;background-image:url(<%= @video.thumbnail %>)" 
 	href="<%= @h264_encoding.url %>"
 
 	<!-- play button -->
 	<img src="/images/play_large.png" alt="Play this video" />
-
 	
 </div>
 
 <script language="JavaScript">
 	flowplayer("div.player", "/flowplayer-3.2.7.swf");
 </script>
-
-
-
-
 
 
 
