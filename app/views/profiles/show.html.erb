@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Avatar:</b>
-  <%= @profile.avatar %>
+  <p><%= image_tag @profile.avatar_url.to_s %></p>
 </p>
 
 <p>
@@ -31,5 +29,4 @@
 </p>
 
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profile_path %>
+<!-- <%= link_to 'Back', profile_path %> -->
