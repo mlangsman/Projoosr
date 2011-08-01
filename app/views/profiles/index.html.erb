@@ -3,6 +3,7 @@
 <table>
   <tr>
 	<th>Email</th>
+	<th>Username</th>	
     <th>Avatar</th>
     <th>First name</th>
     <th>Last name</th>
@@ -17,6 +18,7 @@
 <% @profiles.each do |profile| %>
   <tr>
 	<td><%= profile.user.email %></td>
+	<td><%= profile.user.username %></td>
     <td><%= profile.avatar %></td>
     <td><%= profile.first_name %></td>
     <td><%= profile.last_name %></td>
