@@ -78,6 +78,7 @@ GEM
     rdoc (3.8)
     rest-client (1.6.3)
       mime-types (>= 1.16)
+    rmagick (2.13.1)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -112,6 +113,7 @@ DEPENDENCIES
   devise
   panda
   rails (= 3.0.9)
+  rmagick
   rspec-rails
   sqlite3
   webrat

@@ -1,23 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @video.title %></h2>
-by <strong><%= @video.user.email %></strong>
-
-<p><%= @video.description %></p>
-
-<!--<%= render 'debug' %>-->
-
-<div class="player" style="display:block;width:<%= @h264_encoding.width %>px;height:<%= @h264_encoding.height %>px;background-image:url(<%= @video.thumbnail %>)" 
-	href="<%= @h264_encoding.url %>"
-
-	<!-- play button -->
-	<img src="/images/play_large.png" alt="Play this video" />
-	
+<div id="heading">
+	<div class="portrait">
+	  	<%= image_tag @video.user.profile.avatar_url(:thumb).to_s %>
+	</div>
+	<div class="details">
+		<h2 class="bottom"><%= @video.title %></h2>
+		by <strong><%= @video.user.email %></strong>
+	</div>  
 </div>
 
-<script language="JavaScript">
-	flowplayer("div.player", "/flowplayer-3.2.7.swf");
-</script>
+<div id="meat">
 
+	<!--<%= render 'debug' %>-->
 
-<!-- <%= link_to 'Back', videos_path %> -->
+	<div class="player" style="display:block;width:<%= @h264_encoding.width %>px;height:<%= @h264_encoding.height %>px;background-image:url(<%= @video.thumbnail %>)" 
+		href="<%= @h264_encoding.url %>"
+
+		<!-- play button -->
+		<img src="/images/play_large.png" alt="Play this video" />
+	
+	</div>
+
+	<script language="JavaScript">
+		flowplayer("div.player", "/flowplayer-3.2.7.swf");
+	</script>
+
+	<p><%= @video.description %></p>
+	
+	<!-- <%= link_to 'Back', videos_path %> -->
+</div>
