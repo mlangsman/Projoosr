@@ -21,7 +21,11 @@
 <% end %>
 
 <script>
-  <% auth_params = Panda.signed_params('post', "/videos.json") %>
+<% if false %><!-- Commented out  -->
+<% auth_params = Panda.signed_params('post', "/videos.json") %>
+<% end %>
+
+  <%  auth_params = Panda.signed_params('POST', '/videos.json', {:path_format => 'Videos/:video_id/:id'}) %> 
   jQuery("#returned_video_id").pandaUploader(<%=raw auth_params.to_json %>, {
     // Uncomment the line below if your account is in the EU
     // api_host: 'api-eu.pandastream.com',
