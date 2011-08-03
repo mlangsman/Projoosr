@@ -30,8 +30,12 @@ Projoosr::Application.configure do
   config.action_mailer.default_url_options   = { :host => 'localhost:3000' }   
   
   # Panda config
-  
   ENV['PANDASTREAM_URL'] = "http://c80dbcee4c037bb80ceb:3e663336fd3408275159@api.pandastream.com:80/4791c3e54b94977441471683df792e8b"
+  
+  # CarrierWave Config
+  ENV['s3_access_key_id'] = "AKIAJPHNWZPBAI2HR5OQ" 
+  ENV['s3_secret_access_key'] = "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"
+  ENV['s3_bucket'] = "Projoosr_Development"
 
 end
 
