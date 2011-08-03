@@ -3,7 +3,8 @@ class VideosController < ApplicationController
   
     def index
       logger.debug "\n\nindex called!\n\n" 
-      @videos = Video.find(:all)
+      # @videos = Video.find(:all)
+      @videos = current_user.videos
     end
     
     def show
@@ -41,27 +42,39 @@ class VideosController < ApplicationController
     end
     
     def edit
-      @video = Video.find(params[:id])
+      begin
+        @video = current_user.videos.find(params[:id])
+      end
+      rescue ActiveRecord::RecordNotFound
+        render_404
     end
     
     def update
-      @video = Video.find(params[:id])
-      @video.update_attributes(params[:video])
-      redirect_to :action => :index
+      begin
+        @video = current_user.videos.find(params[:id])
+        @video.update_attributes(params[:video])
+        redirect_to :action => :index
+      end
+      rescue ActiveRecord::RecordNotFound
+        render_404      
     end
     
-    def destroy
-      logger.debug "\n\ndestroy called!\n\n" 
-      @video = Video.find(params[:id])
-      
+    def destroy 
+      begin
+        @video = current_user.videos.find(params[:id])
+        
+      # delete the video database row
+      @video.destroy
+        
       # Find and delete the Panda video
       @original_video = @video.panda_video
       @original_video.delete
-      
-      # delete the video database row
-      @video.destroy
-      
       redirect_to :action => :index
+      end
+        rescue ActiveRecord::RecordNotFound
+          render_404
     end
+    
+        
   
 end
