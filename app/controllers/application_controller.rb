@@ -17,10 +17,13 @@ class ApplicationController < ActionController::Base
   protected
 
   def authenticate
-    if ENV['RAILS_KEY'] == "production"
+    path = request.env['PATH_INFO']
+    puts "****** called auth with path: " + path + " and env is: " + ENV['RACK_ENV']
+    if ENV['RACK_ENV'] == "production" && path != "/videos/notify"
+      puts "****** authenticating"
         authenticate_or_request_with_http_basic do |username, password|
           username == ENV['HTTP_USER'] && password == ENV['HTTP_PWD']
-        end
+        end 
     end
   end
   

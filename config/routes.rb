@@ -5,9 +5,13 @@ Projoosr::Application.routes.draw do
   get "site/about"
 
   get "home/index"
-
+  
   devise_for :users
+  
+  match 'videos/notify' => 'videos#notify', :via => :post
+  
   resources :videos
+    
   resource :profile
   root :to => "site#index"
  

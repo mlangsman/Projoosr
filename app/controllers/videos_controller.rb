@@ -1,21 +1,18 @@
 class VideosController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show]
+  before_filter :authenticate_user!, :except => [:show, :notify]
   
-    def index
-      logger.debug "\n\nindex called!\n\n" 
-      # @videos = Video.find(:all)
+    def index 
       @videos = current_user.videos
     end
     
     def show
       begin
         @video = Video.find(params[:id])
-        # If the requested video isnt published 
+        # Test if the requested video isnt published and handle accordingly
         if @video.published?
           @original_video = @video.panda_video
           @h264_encoding = @original_video.encodings.find_by_profile_name("h264") 
         else 
-          #render_404
           respond_to do |format|
             if @video.user = current_user
               flash.now[:notice] = "Your video is being encoded and reviewed. We'll let you know as soon as it's ready!"
@@ -38,7 +35,7 @@ class VideosController < ApplicationController
 
     def create
       @video = current_user.videos.create!(params[:video])
-      redirect_to :action => :show, :id => @video.id 
+      redirect_to :action => :show, :id => @video.id
     end
     
     def edit
@@ -53,7 +50,7 @@ class VideosController < ApplicationController
       begin
         @video = current_user.videos.find(params[:id])
         @video.update_attributes(params[:video])
-        redirect_to :action => :index
+        redirect_to :action => :index 
       end
       rescue ActiveRecord::RecordNotFound
         render_404      
@@ -75,6 +72,10 @@ class VideosController < ApplicationController
           render_404
     end
     
+    def notify
+      puts "*** Notify Called ***"
+      render :nothing => true, :status => 200
+    end
         
   
 end
